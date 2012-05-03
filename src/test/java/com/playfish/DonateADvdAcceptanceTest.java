@@ -17,6 +17,6 @@ public class DonateADvdAcceptanceTest {
 
         assertTrue("dvd is not availalble", library.getDvds().get(0).isAvailable());
 
-        
+
     }
 }
