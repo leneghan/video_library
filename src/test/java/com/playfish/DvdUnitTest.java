@@ -1,11 +1,19 @@
 package com.playfish;
 
-/**
- * Created with IntelliJ IDEA.
- * User: christopher.wardrop
- * Date: 03/05/2012
- * Time: 15:03
- * To change this template use File | Settings | File Templates.
- */
+import org.junit.Test;
+
+import static junit.framework.Assert.assertTrue;
+
 public class DvdUnitTest {
+
+
+    @Test
+    public void shouldCreateDvdWithCopy(){
+        Dvd dvd = new Dvd("title", "1990", "director");
+
+        assertTrue("A dvd copy should be available", dvd.isAvailable());
+
+    }
+
+
 }
