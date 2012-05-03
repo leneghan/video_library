@@ -2,6 +2,7 @@ package com.playfish;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Dvd {
 
@@ -19,7 +20,7 @@ public class Dvd {
 		this.dateAdded = dateAdded;
 	}
 
-    private final ArrayList<Copy> copies = new ArrayList<Copy>();
+    private final List<Copy> copies = new ArrayList<Copy>();
 
     public Dvd(String title, String year, String director) {
         Copy copy = new Copy();
@@ -36,4 +37,15 @@ public class Dvd {
 		result.borrow(member);
 		return result;
 	}
+
+    public Copy findCopy(final Member member) {
+        
+        for (final Copy candidateToBeAvailable : this.copies) {
+            if (member.equals(candidateToBeAvailable.onLoanTo())) {
+                return candidateToBeAvailable;
+            }
+        }
+        return null;
+    }
+
 }

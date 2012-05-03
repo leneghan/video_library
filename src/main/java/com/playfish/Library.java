@@ -6,20 +6,25 @@ import java.util.List;
 
 
 public class Library {
+
 	private Date lastNewsLetterDate;
 	private List<Dvd> dvds = new ArrayList<Dvd>();
-	
-    public void submitDvd() {
 
-
+    public void submitDvd(String title, String realeaseYear, String director) {
+        Dvd dvd = new Dvd(title, realeaseYear, director);
+        getDvds().add(dvd);
     }
-	
+
 	public boolean sendNewsLetter() {
 		lastNewsLetterDate = new Date();
 		return true;
 	}
 
-	public List<Dvd> listNewTitles() {		
+    public List<Dvd> getDvds() {
+        return dvds;
+    }
+
+	public List<Dvd> listNewTitles() {
 		List<Dvd> newDvds = new ArrayList<Dvd>();
 		for (Dvd dvd: dvds){
 			if (dvd.isReleasedAfter(getLastNewsletterDate())){
@@ -29,7 +34,7 @@ public class Library {
 		return dvds;
 	}
 	
-	public void addDvd(Dvd dvd){
+	protected void addDvd(Dvd dvd){
 		dvd.setDateAdded(new Date());
 		dvds.add(dvd);
 	}
