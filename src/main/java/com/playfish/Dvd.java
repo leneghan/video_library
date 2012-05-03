@@ -6,26 +6,45 @@ import java.util.List;
 
 public class Dvd {
 
+    private String title;
+    private String year;
+    private String director;
 	private Date dateAdded;
+    private final ArrayList<Copy> copies = new ArrayList<Copy>();
+
+    public Dvd(String title, String year, String director) {
+
+        this.title = title;
+        this.year = year;
+        this.director = director;
+
+        copies.add(new Copy());
+    }
+
 
 	public boolean isReleasedAfter(Date lastNewsletterDate) {
 		return dateAdded.after(lastNewsletterDate);
 	}
 
-	public Date getDateAdded() {
+    public String getTitle() {
+        return title;
+    }
+
+    public String getYear() {
+        return year;
+    }
+
+    public String getDirector() {
+        return director;
+    }
+
+    public Date getDateAdded() {
 		return dateAdded;
 	}
 
 	public void setDateAdded(Date dateAdded) {
 		this.dateAdded = dateAdded;
 	}
-
-    private final List<Copy> copies = new ArrayList<Copy>();
-
-    public Dvd(String title, String year, String director) {
-        Copy copy = new Copy();
-        copies.add(copy);
-    }
 
     public boolean isAvailable() {
         return copies.get(copies.size() - 1).isAvailable();
