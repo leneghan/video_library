@@ -2,13 +2,17 @@ package com.playfish;
 
 public class Copy {
 
-	public Member onLoanTo;
+    public Member onLoanTo;
 
-	public void borrow(Member member) {
+    public void borrow(Member member) {
 
-		onLoanTo = member;
-		
-	}
+        onLoanTo = member;
+
+    }
+
+    public void returnCopy() {
+        onLoanTo = null;
+    }
 
     public boolean isAvailable() {
         return onLoanTo == null;
