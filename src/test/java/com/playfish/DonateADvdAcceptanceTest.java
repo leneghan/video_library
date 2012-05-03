@@ -3,8 +3,7 @@ package com.playfish;
 import org.junit.Ignore;
 import org.junit.Test;
 
-public class LibraryAcceptanceTest {
-
+public class DonateADvdAcceptanceTest {
 
     @Test
     @Ignore
