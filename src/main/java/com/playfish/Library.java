@@ -6,19 +6,23 @@ import java.util.List;
 
 public class Library {
 
-    public void submitDvd() {
+    private List<Dvd> dvds = new ArrayList<Dvd>();
 
-
+    public void submitDvd(String title, String realeaseYear, String director) {
+        Dvd dvd = new Dvd(title, realeaseYear, director);
+        getDvds().add(dvd);
     }
-	
-	private List<Dvd> dvds = new ArrayList<Dvd>();
 
 	public boolean sendNewsLetter() {
 		return true;
 	}
 
 	public List<Dvd> listNewTitles() {
-		dvds.add(new Dvd("","",""));
-		return dvds;
+		getDvds().add(new Dvd("", "", ""));
+		return getDvds();
 	}
+
+    public List<Dvd> getDvds() {
+        return dvds;
+    }
 }
