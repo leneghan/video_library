@@ -9,13 +9,15 @@ import org.junit.Test;
  * Time: 14:49
  * To change this template use File | Settings | File Templates.
  */
-public class TestLibrary {
+public class LibraryAcceptanceTest {
 
 
     @Test
     public void givenThatIHaveACopyOfDvdNotInLibrary_WhenDonateACopy_ThenDvdTitleIsAddedAndCopyRegistered()
     {
 
+        Library library = new Library();
 
+        library.submitDvd();
     }
 }
