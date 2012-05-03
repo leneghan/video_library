@@ -48,4 +48,10 @@ public class Dvd {
         return null;
     }
 
+    public void returnDvd(Member member) {
+        Copy copyOnLoan = findCopy(member);
+        copyOnLoan.returnCopy();
+        
+    }
+
 }
