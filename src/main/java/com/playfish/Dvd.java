@@ -18,7 +18,7 @@ public class Dvd {
 	public Copy borrow(Member member) {
 		
 		Copy result = new Copy();
-		result.onLoanTo = member;
+		result.borrow(member);
 		return result;
 	}
 }
