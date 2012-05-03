@@ -5,17 +5,20 @@ import java.util.List;
 
 
 public class Library {
+
+    public void submitDvd() {
+
+
+    }
 	
 	private List<Dvd> dvds = new ArrayList<Dvd>();
 
 	public boolean sendNewsLetter() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
 	public List<Dvd> listNewTitles() {
-		dvds.add(new Dvd());
+		dvds.add(new Dvd("","",""));
 		return dvds;
 	}
-	
 }

@@ -14,7 +14,7 @@ public class DVDTest {
 	public void setup()
 	{
 		this.memberA = new Member();
-		this.dvd = new Dvd();
+		this.dvd = new Dvd("","","");
 	}
 	
 	@Test
