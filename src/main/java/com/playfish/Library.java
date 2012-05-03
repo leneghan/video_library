@@ -8,15 +8,19 @@ import java.util.List;
 public class Library {
 	private Date lastNewsLetterDate;
 	private List<Dvd> dvds = new ArrayList<Dvd>();
+	private List<Member> members = new ArrayList<Member>();
 	
     public void submitDvd() {
 
 
     }
 	
-	public boolean sendNewsLetter() {
+	public boolean sendNewsLetter(EmailClient emailClient) {
+		List<Dvd> newDvds = listNewTitles();
+		
+		Newsletter newsletter = new Newsletter(newDvds, members); 
 		lastNewsLetterDate = new Date();
-		return true;
+		return emailClient.emailMember(newsletter.getContent());
 	}
 
 	public List<Dvd> listNewTitles() {		

@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Dvd {
-
+	private String title;
+	private String year;
+	private String director;
 	private Date dateAdded;
 
 	public boolean isReleasedAfter(Date lastNewsletterDate) {
@@ -22,6 +24,9 @@ public class Dvd {
     private final ArrayList<Copy> copies = new ArrayList<Copy>();
 
     public Dvd(String title, String year, String director) {
+    	this.title = title;
+    	this.year = year;
+    	this.director = director;
         Copy copy = new Copy();
         copies.add(copy);
     }
