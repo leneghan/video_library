@@ -1,5 +1,9 @@
 package com.playfish;
 
+import java.util.List;
+
+import junit.framework.Assert;
+
 import org.junit.Test;
 
 /**
@@ -17,5 +21,21 @@ public class TestLibrary {
     {
 
 
+    }
+    
+    @Test
+    public void testSendNewsLetter_WhenHasNewTitle_Send(){
+    	Library library = new Library();
+    	boolean rs = library.sendNewsLetter();
+    	
+    	Assert.assertTrue(rs);
+    }
+    
+    @Test 
+    public void testListNewTitles_WhenNewTitlesAreAvailable(){
+    	Library library = new Library();
+    	List<Dvd> dvds = library.listNewTitles();
+    	
+    	Assert.assertFalse(dvds.isEmpty());
     }
 }
