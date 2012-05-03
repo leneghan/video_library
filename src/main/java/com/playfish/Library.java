@@ -7,9 +7,13 @@ import java.util.List;
 
 public class Library {
 	private Date lastNewsLetterDate;
-	
 	private List<Dvd> dvds = new ArrayList<Dvd>();
+	
+    public void submitDvd() {
 
+
+    }
+	
 	public boolean sendNewsLetter() {
 		lastNewsLetterDate = new Date();
 		return true;

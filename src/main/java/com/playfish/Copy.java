@@ -14,4 +14,7 @@ public class Copy {
         onLoanTo = null;
     }
 
+    public boolean isAvailable() {
+        return onLoanTo == null;
+    }
 }
