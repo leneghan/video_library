@@ -1,26 +1,35 @@
 package com.playfish;
 
-import junit.framework.TestCase;
+import junit.framework.Assert;
 
-public class DVDTest extends TestCase {
+import org.junit.Before;
+import org.junit.Test;
 
-	public void test_IfBorrowDVD_ThenRecieveACopy()
+public class DVDTest {
+
+	Member memberA;
+	Dvd dvd;
+	
+	@Before
+	public void setup()
 	{
-		Member memberA = new Member();
-		Dvd dvd = new Dvd();
-		
-		Copy dvdCopy = dvd.borrow(memberA);
-		
-		assertNotNull(dvdCopy);
+		this.memberA = new Member();
+		this.dvd = new Dvd();
 	}
 	
-	public void test_IfMEmberABorrowsDVD_ThenRecieveACopy_LoanedToMemberA()
-	{
-		Member memberA = new Member();
-		Dvd dvd = new Dvd();
-		
+	@Test
+	public void test_IfBorrowDVD_ThenRecieveACopy()
+	{	
 		Copy dvdCopy = dvd.borrow(memberA);
 		
-		assertTrue(dvdCopy.onLoanTo == memberA);
+		Assert.assertNotNull(dvdCopy);
+	}
+	
+	@Test
+	public void test_IfMemberABorrowsDVD_ThenRecieveACopy_LoanedToMemberA()
+	{	
+		Copy dvdCopy = dvd.borrow(memberA);
+		
+		Assert.assertTrue(dvdCopy.onLoanTo == memberA);
 	}
 }
