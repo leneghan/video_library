@@ -40,7 +40,7 @@ public class DvdUnitTest {
 	{	
 		Copy dvdCopy = dvd.borrow(memberA);
 		
-		Assert.assertTrue(dvdCopy.onLoanTo == memberA);
+		Assert.assertEquals(dvdCopy.onLoanTo(), memberA);
 	}
 
 }
