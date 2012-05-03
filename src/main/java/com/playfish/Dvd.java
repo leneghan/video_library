@@ -46,16 +46,6 @@ public class Dvd {
 		this.dateAdded = dateAdded;
 	}
 
-<<<<<<< HEAD
-=======
-    private final List<Copy> copies = new ArrayList<Copy>();
-
-    public Dvd(String title, String year, String director) {
-        Copy copy = new Copy();
-        copies.add(copy);
-    }
->>>>>>> origin/master
-
     public boolean isAvailable() {
         return copies.get(copies.size() - 1).isAvailable();
     }
