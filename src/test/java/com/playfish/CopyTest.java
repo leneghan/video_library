@@ -15,7 +15,7 @@ public class CopyTest  {
         dvdCopy.borrow(memberA);
 
 
-        Assert.assertTrue(dvdCopy.onLoanTo() == memberA);
+        Assert.assertTrue(dvdCopy.onLoanTo(memberA));
     }
     
     @Test
@@ -29,7 +29,7 @@ public class CopyTest  {
         dvdCopy.returnCopy();
 
 
-        Assert.assertNull(dvdCopy.onLoanTo());
+        Assert.assertTrue(dvdCopy.onLoanTo(Member.NULL_MEMBER));
     }
 
 }

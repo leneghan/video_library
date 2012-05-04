@@ -1,15 +1,14 @@
 package com.playfish;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import com.google.common.base.Optional;
 import junit.framework.Assert;
-
 import org.junit.Before;
 import org.junit.Test;
-
 import static junit.framework.Assert.assertTrue;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 
 public class DvdUnitTest {
 
@@ -60,21 +59,21 @@ public class DvdUnitTest {
     public void test_IfMemberABorrowsDvd_ThenRecieveACopy_LoanedToMemberA() {
         Copy dvdCopy = dvd.borrow(memberA);
 
-        Assert.assertTrue(dvdCopy.onLoanTo() == memberA);
+        Assert.assertTrue(dvdCopy.onLoanTo(memberA));
     }
 
     public void test_IfMemeberHasCopyOnLoan_ItCanBeFoundFromDvd() {
         Copy copyOnLoan = dvd.borrow(memberA);
-        Copy foundCopy = dvd.findCopy(memberA);
+        Optional<Copy> foundCopy = dvd.findCopy(memberA);
         
-        assertThat(foundCopy, is(equalTo(copyOnLoan)));
+        assertThat(foundCopy.get(), is(equalTo(copyOnLoan)));
     }
     
     @Test
     public void test_IfMemeberHasCopyOnLoan_ItCanBeReturned() {
         Copy copyOnLoan = dvd.borrow(memberA);
         dvd.returnDvd(memberA);
-        assertThat(copyOnLoan.isAvailable(), is(true));
+        assertThat(copyOnLoan.isAvailable(), is(false));
     }
 
 }

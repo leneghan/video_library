@@ -2,7 +2,8 @@ package com.playfish;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
+
+import com.google.common.base.Optional;
 
 public class Dvd {
 	private String title;
@@ -50,36 +51,41 @@ public class Dvd {
     }
 
 	public Copy borrow(Member member) {
-		
-		Copy toBorrow = findAvailableCopy();
-		toBorrow.borrow(member);
-		return toBorrow;
+
+        Optional<Copy> toBorrow = findAvailableCopy();
+
+        if(toBorrow.isPresent()){
+            toBorrow.get().borrow(member);
+            return toBorrow.get();
+        }
+        throw new RuntimeException("No Available copy found");
 	}
 
 
-    private Copy findAvailableCopy() {
+    private Optional<Copy> findAvailableCopy() {
         for (final Copy candidateToBeAvailable : this.copies) {
-            if (null == candidateToBeAvailable.onLoanTo()) {
-                return candidateToBeAvailable;
+            if (candidateToBeAvailable.isAvailable()) {
+                return Optional.of(candidateToBeAvailable);
             }
         }
-        return null;
+        return Optional.absent();
     }
 
-    public Copy findCopy(final Member member) {
+    public Optional<Copy> findCopy(final Member member) {
         
         for (final Copy candidateToBeAvailable : this.copies) {
-            if (member.equals(candidateToBeAvailable.onLoanTo())) {
-                return candidateToBeAvailable;
+            if (candidateToBeAvailable.onLoanTo(member)) {
+                return Optional.of(candidateToBeAvailable);
             }
         }
-        return null;
+        return Optional.absent();
     }
 
     public void returnDvd(Member member) {
-        Copy copyOnLoan = findCopy(member);
-        copyOnLoan.returnCopy();
-        
+        Optional<Copy> copyOnLoan = findCopy(member);
+        if(copyOnLoan.isPresent()){
+            copyOnLoan.get().returnCopy();
+        }
     }
 
 }

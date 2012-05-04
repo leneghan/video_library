@@ -1,4 +1,5 @@
 package com.playfish;
+import static com.playfish.Member.NULL_MEMBER;
 
 public class Copy {
 
@@ -10,15 +11,15 @@ public class Copy {
     }
 
     public void returnCopy() {
-        onLoanTo = null;
+        onLoanTo = NULL_MEMBER;
     }
     
-    public Member onLoanTo()
+    public Boolean onLoanTo(Member member)
     {
-        return onLoanTo;
+        return onLoanTo.equals(member);
     }
 
     public boolean isAvailable() {
-        return onLoanTo == null;
+        return onLoanTo != NULL_MEMBER;
     }
 }

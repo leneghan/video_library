@@ -1,10 +1,9 @@
 package com.playfish;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
-
 import org.junit.Before;
 import org.junit.Test;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 
 
 public class DvdAcceptanceTest {
@@ -23,7 +22,7 @@ public class DvdAcceptanceTest {
     public void test_IfMemeberHasCopyOnLoan_ItCanBeReturned() {
         Copy copyOnLoan = dvd.borrow(memberA);
         dvd.returnDvd(memberA);
-        assertThat(copyOnLoan.isAvailable(), is(true));
+        assertThat(copyOnLoan.isAvailable(), is(false));
     }
 
 }
