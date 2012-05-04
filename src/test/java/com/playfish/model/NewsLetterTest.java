@@ -1,4 +1,4 @@
-package com.playfish;
+package com.playfish.model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,6 +6,8 @@ import java.util.List;
 import junit.framework.Assert;
 
 import org.junit.Test;
+
+import com.playfish.model.*;
 
 public class NewsLetterTest {
 	@Test

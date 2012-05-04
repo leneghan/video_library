@@ -1,4 +1,4 @@
-package com.playfish;
+package com.playfish.model;
 
 import java.util.Date;
 import java.util.List;

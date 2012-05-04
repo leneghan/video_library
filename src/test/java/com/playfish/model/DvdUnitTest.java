@@ -1,6 +1,8 @@
-package com.playfish;
+package com.playfish.model;
 
 import com.google.common.base.Optional;
+import com.playfish.model.*;
+
 import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;

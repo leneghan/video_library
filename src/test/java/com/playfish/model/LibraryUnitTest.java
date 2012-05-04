@@ -1,4 +1,4 @@
-package com.playfish;
+package com.playfish.model;
 
 import java.util.Date;
 import java.util.List;
@@ -7,6 +7,9 @@ import junit.framework.Assert;
 
 import org.easymock.EasyMock;
 import org.junit.Test;
+
+import com.playfish.model.Dvd;
+import com.playfish.model.Library;
 
 public class LibraryUnitTest {
 

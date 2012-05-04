@@ -1,4 +1,4 @@
-package com.playfish;
+package com.playfish.model;
 
 public class Member {
     private String email;

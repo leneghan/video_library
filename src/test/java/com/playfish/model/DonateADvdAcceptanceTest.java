@@ -1,7 +1,9 @@
-package com.playfish;
+package com.playfish.model;
 
 import org.junit.Ignore;
 import org.junit.Test;
+
+import com.playfish.model.Library;
 
 import static org.junit.Assert.assertTrue;
 

@@ -1,9 +1,11 @@
-package com.playfish;
+package com.playfish.model;
 
 import java.util.Date;
 
 import org.easymock.EasyMock;
 import org.junit.Test;
+
+import com.playfish.model.*;
 
 public class SendNewsLetterAcceptanceTest {
     

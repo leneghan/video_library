@@ -1,5 +1,5 @@
-package com.playfish;
-import static com.playfish.Member.NULL_MEMBER;
+package com.playfish.model;
+import static com.playfish.model.Member.NULL_MEMBER;
 
 public class Copy {
 
