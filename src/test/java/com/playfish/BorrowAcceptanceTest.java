@@ -10,7 +10,7 @@ public class BorrowAcceptanceTest {
 	@Test
 	public void given_ASelectedDVDWithOneCopy_WhenBorrowed_ThenThatCopyIsMarkedAsOnLoanToMeAndThereAreNoMoreAvailable() 
 	{
-		Member memberA = new Member();
+		Member memberA = new Member("email@domain.com");
 		Dvd dvd = new Dvd("Title","Year", "Director");
 		
 		Copy dvdCopy = dvd.borrow(memberA);
