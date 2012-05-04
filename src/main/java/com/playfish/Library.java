@@ -13,6 +13,7 @@ public class Library {
 	
     public void submitDvd(String title, String realeaseYear, String director) {
         Dvd dvd = new Dvd(title, realeaseYear, director);
+        dvd.setDateAdded(new Date());
         getDvds().add(dvd);
     }
 	
@@ -38,11 +39,6 @@ public class Library {
 		return dvds;
 	}
 	
-	protected void addDvd(Dvd dvd){
-		dvd.setDateAdded(new Date());
-		dvds.add(dvd);
-	}
-
 	public Date getLastNewsletterDate() {
 		return lastNewsLetterDate;
 	}
