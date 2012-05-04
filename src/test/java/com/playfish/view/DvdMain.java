@@ -15,7 +15,7 @@ public class DvdMain extends JFrame {
         this.getContentPane().add(dvdViewPanel, BorderLayout.CENTER);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        dvdViewPanel.displayDvd(new Dvd("star wars", "1977", "george lucase"), new Member(""));
+        dvdViewPanel.displayDvd(new Dvd("star wars", "1977", "george lucas"), new Member(""));
     }
 
 
