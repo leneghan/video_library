@@ -54,7 +54,10 @@ public class Dvd {
 	public Copy borrow(Member member) {
 		
 		Copy toBorrow = findAvailableCopy();
-		toBorrow.borrow(member);
+		if (toBorrow != null)
+		{
+			toBorrow.borrow(member);
+		}
 		return toBorrow;
 	}
 
