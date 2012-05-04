@@ -5,17 +5,14 @@ import java.util.List;
 
 import junit.framework.Assert;
 
-import org.easymock.EasyMock;
 import org.junit.Test;
-
-import com.playfish.model.Dvd;
-import com.playfish.model.Library;
+import org.mockito.Mockito;
 
 public class LibraryUnitTest {
 
     @Test 
     public void testListNewTitles_WhenNewTitlesAreAvailable(){
-    	Library library = new Library();
+    	Library library = new Library(Mockito.mock(EmailClient.class, "emailClient"));
     	library.setLastNewsLetterDate(new Date());
     	library.submitDvd("title", "year", "director");
     	List<Dvd> dvds = library.listNewTitles();
@@ -25,7 +22,7 @@ public class LibraryUnitTest {
     
     @Test
     public void testListNewTitles_AllTitlesAreNewerThanNewsletter(){
-    	Library library = new Library();
+    	Library library = new Library(Mockito.mock(EmailClient.class, "emailClient"));
     	List<Dvd> dvds = library.listNewTitles();
     	Date lastNewsletterDate = library.getLastNewsletterDate();
     	

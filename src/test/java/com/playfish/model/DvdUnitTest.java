@@ -1,16 +1,16 @@
 package com.playfish.model;
 
-import com.google.common.base.Optional;
-import com.playfish.model.*;
-
-import junit.framework.Assert;
-import org.junit.Before;
-import org.junit.Test;
 import static junit.framework.Assert.assertTrue;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
+import junit.framework.Assert;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import com.google.common.base.Optional;
 
 public class DvdUnitTest {
 

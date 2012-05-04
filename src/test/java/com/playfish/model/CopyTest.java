@@ -1,10 +1,8 @@
 package com.playfish.model;
 
 import junit.framework.Assert;
-import org.junit.Test;
 
-import com.playfish.model.Copy;
-import com.playfish.model.Member;
+import org.junit.Test;
 
 public class CopyTest  {
 

@@ -1,11 +1,9 @@
 package com.playfish.model;
 
-import org.junit.Ignore;
-import org.junit.Test;
-
-import com.playfish.model.Library;
-
 import static org.junit.Assert.assertTrue;
+
+import org.junit.Test;
+import org.mockito.Mockito;
 
 public class DonateADvdAcceptanceTest {
 
@@ -13,7 +11,7 @@ public class DonateADvdAcceptanceTest {
     public void givenThatIHaveACopyOfDvdNotInLibrary_WhenDonateACopy_ThenDvdTitleIsAddedAndCopyRegistered()
     {
 
-        Library library = new Library();
+        Library library = new Library(Mockito.mock(EmailClient.class, "emailClient"));
 
         library.submitDvd("testTitle", "testYear", "testDirector");
 

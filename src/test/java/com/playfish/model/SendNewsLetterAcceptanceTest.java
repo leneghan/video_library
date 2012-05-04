@@ -5,8 +5,6 @@ import java.util.Date;
 import org.easymock.EasyMock;
 import org.junit.Test;
 
-import com.playfish.model.*;
-
 public class SendNewsLetterAcceptanceTest {
     
     @Test
@@ -16,14 +14,14 @@ public class SendNewsLetterAcceptanceTest {
         EasyMock.expect(emailClient.emailMember((String)EasyMock.anyObject(), (String)EasyMock.anyObject())).andReturn(true).atLeastOnce();
         EasyMock.replay(emailClient);
         
-        Library library = new Library();
+        Library library = new Library(emailClient);
         Date oldNewsletterDate = new Date(1336127334);
         library.setLastNewsLetterDate(oldNewsletterDate);
         
         library.addMember(member);
         library.submitDvd("testTitle", "testYear", "testDirector");
         
-        library.sendNewsLetter(emailClient);
+        library.sendNewsLetter();
         
         EasyMock.verify(emailClient);
     }

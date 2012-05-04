@@ -2,6 +2,7 @@ package com.playfish.model;
 
 import java.util.ArrayList;
 import java.util.Date;
+
 import com.google.common.base.Optional;
 
 public class Dvd {
