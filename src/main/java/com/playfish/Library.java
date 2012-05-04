@@ -17,12 +17,15 @@ public class Library {
         getDvds().add(dvd);
     }
 	
-	public boolean sendNewsLetter(EmailClient emailClient) {
+	public void sendNewsLetter(EmailClient emailClient) {
 		List<Dvd> newDvds = listNewTitles();
 		
 		Newsletter newsletter = new Newsletter(newDvds, members);
 		lastNewsLetterDate = new Date();
-		return emailClient.emailMember(newsletter.getContent());
+		
+		for (Member member : members) {
+		    emailClient.emailMember(member.getEmail(), newsletter.getContent());
+		}
 	}
 
     public List<Dvd> getDvds() {
@@ -44,5 +47,9 @@ public class Library {
 	}
 	public void setLastNewsLetterDate(Date lastNewsLetterDate){
 		this.lastNewsLetterDate = lastNewsLetterDate;
+	}
+	
+	public void addMember(Member newMember) {
+	    members.add(newMember);
 	}
 }

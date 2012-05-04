@@ -7,7 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 
-public class DvdAcceptanceTest {
+public class ReturnDvdAcceptanceTest {
 
     private Member memberA;
     private Dvd dvd;
@@ -20,7 +20,7 @@ public class DvdAcceptanceTest {
     }
 
     @Test
-    public void test_IfMemeberHasCopyOnLoan_ItCanBeReturned() {
+    public void givenMemeberHasCopyOnLoan_whenItIsReturned_thenItBecomesAvailable() {
         Copy copyOnLoan = dvd.borrow(memberA);
         dvd.returnDvd(memberA);
         assertThat(copyOnLoan.isAvailable(), is(true));
