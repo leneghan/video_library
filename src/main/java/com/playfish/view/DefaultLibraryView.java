@@ -1,23 +1,29 @@
 package com.playfish.view;
 
+import javax.swing.JPanel;
+
 import com.playfish.controller.LibraryController;
+import com.playfish.model.Library;
+import com.playfish.model.Newsletter;
 
-public class DefaultLibraryView {
+public class DefaultLibraryView extends JPanel{
 
-	private LibraryController _controller;
+	private Library library;
+	private LibraryController controller;
 	
-	public DefaultLibraryView(LibraryController controller)
+	public DefaultLibraryView(Library library)
 	{
-		_controller = controller;
+		this.library=  library;
+		this.controller = new LibraryController(library);
 	}
 	
 	public void onClickDontate()
 	{
-		_controller.triggerDotateDvd();
+		controller.triggerDotateDvd();
 	}
 	
 	public void onClickSendNewsletter()
 	{
-	    _controller.triggerSendNewsletter();
+	    Newsletter newsLetter = controller.triggerSendNewsletter();
 	}
 }
