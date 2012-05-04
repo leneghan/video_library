@@ -6,6 +6,8 @@ public class LibraryController {
 
 	private LibraryView _view;
 	
+	private DonationController _donationController;
+	
 	public void setView(LibraryView view)
 	{
 		_view = view;
@@ -13,6 +15,11 @@ public class LibraryController {
 	
 	public void triggerDotateDvd()
 	{
-		// TODO: Implement me.
+		_donationController.showDonation();
+	}
+	
+	public void setDonationController(DonationController donationController)
+	{
+		_donationController = donationController;
 	}
 }
