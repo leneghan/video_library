@@ -4,6 +4,12 @@ import static com.playfish.Member.NULL_MEMBER;
 public class Copy {
 
     private Member onLoanTo;
+	
+    public Dvd copyOf;
+
+    public Copy() {
+        this.onLoanTo = NULL_MEMBER;
+    }
 
     public void borrow(Member member) {
 
@@ -20,6 +26,6 @@ public class Copy {
     }
 
     public boolean isAvailable() {
-        return onLoanTo != NULL_MEMBER;
+        return onLoanTo == NULL_MEMBER;
     }
 }

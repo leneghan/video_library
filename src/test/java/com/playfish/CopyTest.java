@@ -8,7 +8,7 @@ public class CopyTest  {
     @Test
     public void givenAvailableCopy_whenMemberBorrowsCopy_thenCopyIsOnLoanToMember()
     {
-        Member memberA = new Member();
+        Member memberA = new Member("a@gmail.com");
         
         Copy dvdCopy = new Copy();
         
@@ -21,7 +21,7 @@ public class CopyTest  {
     @Test
     public void givenMemberWithCopyOnLoan_whenMemberReturnsCopy_thenCopyIsNoLongerOnLoan()
     {
-        Member memberA = new Member();
+        Member memberA = new Member("a@gmail.com");
         
         Copy dvdCopy = new Copy();
 

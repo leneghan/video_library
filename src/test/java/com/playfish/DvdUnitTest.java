@@ -18,7 +18,7 @@ public class DvdUnitTest {
 	@Before
 	public void setup()
 	{
-		this.memberA = new Member();
+		this.memberA = new Member("a@gmail.com");
 		this.dvd = new Dvd("star wars", "1977", "George Lucas");
 	}
 
@@ -73,7 +73,22 @@ public class DvdUnitTest {
     public void test_IfMemeberHasCopyOnLoan_ItCanBeReturned() {
         Copy copyOnLoan = dvd.borrow(memberA);
         dvd.returnDvd(memberA);
-        assertThat(copyOnLoan.isAvailable(), is(false));
+        assertThat(copyOnLoan.isAvailable(), is(true));
     }
 
+    @Test(expected = NoCopiesException.class)
+	public void test_IfMemberABorrowsDVD_ThenNoMoreCopiesAreAvailable()
+	{
+		dvd.borrow(memberA);
+		
+		Copy dvdCopy = dvd.borrow(memberA);
+	}
+	
+	@Test
+	public void test_IfMemberABorrowsDVD_ThenCopyIsACopyOfDVD()
+	{
+		Copy dvdCopy = dvd.borrow(memberA);
+		
+		Assert.assertTrue(dvdCopy.copyOf == dvd);
+	}
 }

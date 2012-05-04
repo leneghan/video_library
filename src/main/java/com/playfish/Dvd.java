@@ -2,11 +2,11 @@ package com.playfish;
 
 import java.util.ArrayList;
 import java.util.Date;
-
 import com.google.common.base.Optional;
 
 public class Dvd {
-	private String title;
+
+    private String title;
 	private String year;
 	private String director;
 	private Date dateAdded;
@@ -18,7 +18,9 @@ public class Dvd {
         this.year = year;
         this.director = director;
 
-        copies.add(new Copy());
+        Copy copy = new Copy();
+        copy.copyOf = this;
+        copies.add(copy);
     }
 
 
@@ -51,14 +53,13 @@ public class Dvd {
     }
 
 	public Copy borrow(Member member) {
-
         Optional<Copy> toBorrow = findAvailableCopy();
 
         if(toBorrow.isPresent()){
             toBorrow.get().borrow(member);
             return toBorrow.get();
         }
-        throw new RuntimeException("No Available copy found");
+        throw new NoCopiesException("No Available copy found");
 	}
 
 
@@ -87,5 +88,10 @@ public class Dvd {
             copyOnLoan.get().returnCopy();
         }
     }
-
+    
+    @Override
+    public String toString() {
+        return "Dvd [title=" + title + ", year=" + year + ", director="
+                + director + "]";
+    }
 }

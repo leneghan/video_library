@@ -13,12 +13,12 @@ public class LibraryUnitTest {
 	@Test
     public void testSendNewsLetter_WhenHasNewTitle_Send(){
 		EmailClient emailClient = EasyMock.createMock(EmailClient.class);
-		EasyMock.expect(emailClient.emailMember((String)EasyMock.anyObject())).andReturn(true).atLeastOnce();
+		Member member = new Member("a@gmail.com");
+		EasyMock.expect(emailClient.emailMember((String)EasyMock.anyObject(), (String)EasyMock.anyObject())).andReturn(true).atLeastOnce();
 		EasyMock.replay(emailClient);
     	Library library = new Library();
-    	boolean rs = library.sendNewsLetter(emailClient);
-    	
-    	Assert.assertTrue(rs);
+    	library.addMember(member);
+    	library.sendNewsLetter(emailClient);
     	
     	EasyMock.verify(emailClient);
     }
