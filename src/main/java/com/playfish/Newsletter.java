@@ -2,8 +2,6 @@ package com.playfish;
 
 import java.util.List;
 
-import com.google.gson.Gson;
-
 public class Newsletter {
 	private final List<Dvd> dvds;
 	private final List<Member> members;
@@ -14,7 +12,11 @@ public class Newsletter {
 	}
 	
 	public String getContent(){
-		Gson gson = new Gson();
-		return gson.toJson(dvds);
+	    StringBuilder sb = new StringBuilder();
+	    for (Dvd dvd : dvds) {
+	        String dvdEntry = dvd.toString();
+	        sb.append(dvdEntry);
+	    }
+		return sb.toString();
 	}
 }

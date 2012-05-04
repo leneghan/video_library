@@ -15,7 +15,7 @@ public class DvdAcceptanceTest {
     @Before
     public void setup()
     {
-        this.memberA = new Member();
+        this.memberA = new Member("a@gmail.com");
         this.dvd = new Dvd("Star Wars", "1977", "George Lucas");
     }
 

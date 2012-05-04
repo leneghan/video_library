@@ -2,10 +2,10 @@ package com.playfish;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 public class Dvd {
-	private String title;
+
+    private String title;
 	private String year;
 	private String director;
 	private Date dateAdded;
@@ -81,5 +81,10 @@ public class Dvd {
         copyOnLoan.returnCopy();
         
     }
-
+    
+    @Override
+    public String toString() {
+        return "Dvd [title=" + title + ", year=" + year + ", director="
+                + director + "]";
+    }
 }
