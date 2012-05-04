@@ -17,7 +17,7 @@ public class Library {
         getDvds().add(dvd);
     }
 	
-	public void sendNewsLetter(EmailClient emailClient) {
+	public Newsletter sendNewsLetter(EmailClient emailClient) {
 		List<Dvd> newDvds = listNewTitles();
 		
 		Newsletter newsletter = new Newsletter(newDvds, members);
@@ -26,6 +26,7 @@ public class Library {
 		for (Member member : members) {
 		    emailClient.emailMember(member.getEmail(), newsletter.getContent());
 		}
+		return newsletter;
 	}
 
     public List<Dvd> getDvds() {
