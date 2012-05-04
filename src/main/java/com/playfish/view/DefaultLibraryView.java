@@ -2,11 +2,11 @@ package com.playfish.view;
 
 import com.playfish.controller.LibraryController;
 
-public class LibraryView {
+public class DefaultLibraryView {
 
 	private LibraryController _controller;
 	
-	public LibraryView(LibraryController controller)
+	public DefaultLibraryView(LibraryController controller)
 	{
 		_controller = controller;
 	}
@@ -14,5 +14,10 @@ public class LibraryView {
 	public void onClickDontate()
 	{
 		_controller.triggerDotateDvd();
+	}
+	
+	public void onClickSendNewsletter()
+	{
+	    _controller.triggerSendNewsletter();
 	}
 }

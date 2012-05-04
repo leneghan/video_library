@@ -14,7 +14,7 @@ public class LibraryViewUnitTest {
 	{
 		// Setup the controller and view.
 		LibraryController libraryController = EasyMock.createMock("libraryController", LibraryController.class);
-		LibraryView libraryView = new LibraryView(libraryController);
+		DefaultLibraryView libraryView = new DefaultLibraryView(libraryController);
 		
 		// The controller is in record mode, so record behavior.
 		libraryController.triggerDotateDvd();
