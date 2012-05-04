@@ -1,7 +1,10 @@
 package com.playfish;
 
 import junit.framework.Assert;
+
+import org.easymock.EasyMock;
 import org.junit.Test;
+import org.mockito.Mockito;
 
 import java.util.Date;
 import java.util.List;
@@ -10,10 +13,15 @@ public class LibraryUnitTest {
 
 	@Test
     public void testSendNewsLetter_WhenHasNewTitle_Send(){
+		EmailClient emailClient = EasyMock.createMock(EmailClient.class);
+		EasyMock.expect(emailClient.emailMember((String)EasyMock.anyObject())).andReturn(true).atLeastOnce();
+		EasyMock.replay(emailClient);
     	Library library = new Library();
-    	boolean rs = library.sendNewsLetter();
+    	boolean rs = library.sendNewsLetter(emailClient);
     	
     	Assert.assertTrue(rs);
+    	
+    	EasyMock.verify(emailClient);
     }
     
     @Test 

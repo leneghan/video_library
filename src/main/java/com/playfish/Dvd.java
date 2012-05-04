@@ -5,10 +5,9 @@ import java.util.Date;
 import java.util.List;
 
 public class Dvd {
-
-    private String title;
-    private String year;
-    private String director;
+	private String title;
+	private String year;
+	private String director;
 	private Date dateAdded;
     private final ArrayList<Copy> copies = new ArrayList<Copy>();
 
