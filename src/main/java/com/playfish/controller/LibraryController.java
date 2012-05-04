@@ -1,12 +1,13 @@
 package com.playfish.controller;
 
-import com.playfish.view.LibraryView;
+import com.playfish.view.DefaultLibraryView;
+
 
 public class LibraryController {
 
-	private LibraryView _view;
+	private DefaultLibraryView _view;
 	
-	public void setView(LibraryView view)
+	public void setView(DefaultLibraryView view)
 	{
 		_view = view;
 	}
@@ -15,4 +16,8 @@ public class LibraryController {
 	{
 		// TODO: Implement me.
 	}
+
+    public void triggerSendNewsletter() {
+        
+    }
 }
