@@ -1,20 +1,27 @@
 package com.playfish.controller;
 
+import com.playfish.model.Library;
+import com.playfish.model.Newsletter;
 import com.playfish.view.DefaultLibraryView;
 
 
 public class LibraryController {
 
-	private DefaultLibraryView _view;
+    private Library library;
+	//private DefaultLibraryView view;
+	
+	public LibraryController(Library library) {
+        this.library = library;
+    }
 	
 	private DonationController _donationController;
 	
 	public void setView(DefaultLibraryView view)
-	{
-		_view = view;
+	    {
+	    //  this.view = view;
 	}
-	
-	public void triggerDotateDvd()
+
+    public void triggerDotateDvd()
 	{
 		_donationController.showDonation();
 	}
@@ -24,7 +31,9 @@ public class LibraryController {
 		_donationController = donationController;
 	}
 
-    public void triggerSendNewsletter() {
+    public Newsletter triggerSendNewsletter() {
+        Newsletter newsLetter = library.sendNewsLetter();
+        return newsLetter;
         
     }
 }

@@ -1,23 +1,53 @@
 package com.playfish.view;
 
+import java.awt.Point;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JPanel;
+
 import com.playfish.controller.LibraryController;
+import com.playfish.model.Library;
+import com.playfish.model.Newsletter;
 
-public class DefaultLibraryView {
+public class DefaultLibraryView extends JPanel{
 
-	private LibraryController _controller;
+	private Library library;
+	private LibraryController controller;
 	
-	public DefaultLibraryView(LibraryController controller)
+	private JButton newsletterButton;
+	
+	public DefaultLibraryView(Library library)
 	{
-		_controller = controller;
+		this.library=  library;
+		this.controller = new LibraryController(library);
+		
+		createNewsLetterButton();
 	}
 	
 	public void onClickDontate()
 	{
-		_controller.triggerDotateDvd();
+		controller.triggerDotateDvd();
 	}
 	
 	public void onClickSendNewsletter()
 	{
-	    _controller.triggerSendNewsletter();
+	    Newsletter newsLetter = controller.triggerSendNewsletter();
 	}
+	
+	private void createNewsLetterButton(){
+	    newsletterButton = new JButton();
+	    newsletterButton.setText("Send NewsLetter");
+	    newsletterButton.setLocation(new Point(100, 100));
+	    this.add(newsletterButton);
+	    newsletterButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                onClickSendNewsletter();
+            }
+        });
+	}
+	
 }
