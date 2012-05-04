@@ -51,10 +51,20 @@ public class Dvd {
 
 	public Copy borrow(Member member) {
 		
-		Copy result = new Copy();
-		result.borrow(member);
-		return result;
+		Copy toBorrow = findAvailableCopy();
+		toBorrow.borrow(member);
+		return toBorrow;
 	}
+
+
+    private Copy findAvailableCopy() {
+        for (final Copy candidateToBeAvailable : this.copies) {
+            if (null == candidateToBeAvailable.onLoanTo()) {
+                return candidateToBeAvailable;
+            }
+        }
+        return null;
+    }
 
     public Copy findCopy(final Member member) {
         
@@ -64,6 +74,12 @@ public class Dvd {
             }
         }
         return null;
+    }
+
+    public void returnDvd(Member member) {
+        Copy copyOnLoan = findCopy(member);
+        copyOnLoan.returnCopy();
+        
     }
 
 }
