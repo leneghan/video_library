@@ -1,13 +1,12 @@
 package com.playfish;
 
+import java.util.Date;
+import java.util.List;
+
 import junit.framework.Assert;
 
 import org.easymock.EasyMock;
 import org.junit.Test;
-import org.mockito.Mockito;
-
-import java.util.Date;
-import java.util.List;
 
 public class LibraryUnitTest {
 
@@ -28,7 +27,7 @@ public class LibraryUnitTest {
     public void testListNewTitles_WhenNewTitlesAreAvailable(){
     	Library library = new Library();
     	library.setLastNewsLetterDate(new Date());
-    	library.addDvd(new Dvd("title", "year", "director"));
+    	library.submitDvd("title", "year", "director");
     	List<Dvd> dvds = library.listNewTitles();
     	
     	Assert.assertFalse(dvds.isEmpty());
