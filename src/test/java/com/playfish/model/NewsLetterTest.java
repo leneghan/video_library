@@ -7,8 +7,6 @@ import junit.framework.Assert;
 
 import org.junit.Test;
 
-import com.playfish.model.*;
-
 public class NewsLetterTest {
 	@Test
 	public void testContent(){		

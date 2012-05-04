@@ -1,9 +1,8 @@
 package com.playfish.model;
 
 import junit.framework.Assert;
-import org.junit.Test;
 
-import com.playfish.model.*;
+import org.junit.Test;
 
 public class BorrowAcceptanceTest {
 
