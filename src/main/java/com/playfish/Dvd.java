@@ -17,7 +17,9 @@ public class Dvd {
         this.year = year;
         this.director = director;
 
-        copies.add(new Copy());
+        Copy copy = new Copy();
+        copy.copyOf = this;
+        copies.add(copy);
     }
 
 

@@ -62,4 +62,21 @@ public class DvdUnitTest {
 		Assert.assertEquals(dvdCopy.onLoanTo(), memberA);
 	}
 
+	@Test
+	public void test_IfMemberABorrowsDVD_ThenNoMoreCopiesAreAvailable()
+	{
+		dvd.borrow(memberA);
+		
+		Copy dvdCopy = dvd.borrow(memberA);
+		
+		Assert.assertNull(dvdCopy);
+	}
+	
+	@Test
+	public void test_IfMemberABorrowsDVD_ThenCopyIsACopyOfDVD()
+	{
+		Copy dvdCopy = dvd.borrow(memberA);
+		
+		Assert.assertTrue(dvdCopy.copyOf == dvd);
+	}
 }
