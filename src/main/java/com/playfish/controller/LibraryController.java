@@ -14,6 +14,8 @@ public class LibraryController {
         this.library = library;
     }
 	
+	private DonationController _donationController;
+	
 	public void setView(DefaultLibraryView view)
 	    {
 	    //  this.view = view;
@@ -21,7 +23,12 @@ public class LibraryController {
 
     public void triggerDotateDvd()
 	{
-		// TODO: Implement me.
+		_donationController.showDonation();
+	}
+	
+	public void setDonationController(DonationController donationController)
+	{
+		_donationController = donationController;
 	}
 
     public Newsletter triggerSendNewsletter() {
